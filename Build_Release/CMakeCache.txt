@@ -116,7 +116,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=DisplayImage
+CMAKE_PROJECT_NAME:STATIC=SampleProgram
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -177,6 +177,12 @@ OpenCV_LIB_DIR_DBG:PATH=
 
 //Path where release OpenCV libraries are located
 OpenCV_LIB_DIR_OPT:PATH=
+
+//Value Computed by CMake
+SampleProgram_BINARY_DIR:STATIC=/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release
+
+//Value Computed by CMake
+SampleProgram_SOURCE_DIR:STATIC=/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
 
 
 ########################
