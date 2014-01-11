@@ -161,6 +161,9 @@ DisplayImage_BINARY_DIR:STATIC=/home/pierre/Robotics/OpenCV_Projects/OpenCVSampl
 //Value Computed by CMake
 DisplayImage_SOURCE_DIR:STATIC=/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
 
+//Dependencies for target
+HSVFilter.cpp_LIB_DEPENDS:STATIC=
+
 //Path where debug 3rdpaty OpenCV dependencies are located
 OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
 

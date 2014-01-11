@@ -1,3 +1,4 @@
+#include HSVFilter.hpp"
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -11,8 +12,10 @@ int main(int argc, char *argv[]){
         namedWindow("Original", 1);
                
 	Mat m = imread(argv[1]);
-	Mat binImage = m.clone();
-	
+	GaussianBlur(m, m, Size(3, 3), .2, .2);
+        
+        Mat binImage = m.clone();
+        
         //save this code for general purposes
         Mat kernel = (Mat_<double>(4, 4) <<         
                         1, 1, 1, 1,
