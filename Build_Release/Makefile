@@ -111,6 +111,30 @@ SampleProgram/fast:
 	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/build
 .PHONY : SampleProgram/fast
 
+HSVFilter.o: HSVFilter.cpp.o
+.PHONY : HSVFilter.o
+
+# target to build an object file
+HSVFilter.cpp.o:
+	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o
+.PHONY : HSVFilter.cpp.o
+
+HSVFilter.i: HSVFilter.cpp.i
+.PHONY : HSVFilter.i
+
+# target to preprocess a source file
+HSVFilter.cpp.i:
+	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/HSVFilter.cpp.i
+.PHONY : HSVFilter.cpp.i
+
+HSVFilter.s: HSVFilter.cpp.s
+.PHONY : HSVFilter.s
+
+# target to generate assembly for a file
+HSVFilter.cpp.s:
+	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/HSVFilter.cpp.s
+.PHONY : HSVFilter.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -144,6 +168,9 @@ help:
 	@echo "... SampleProgram"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... HSVFilter.o"
+	@echo "... HSVFilter.i"
+	@echo "... HSVFilter.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

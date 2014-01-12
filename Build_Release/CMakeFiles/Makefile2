@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Bui
 CMakeFiles/SampleProgram.dir/all:
 	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/depend
 	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles  1 2
 	@echo "Built target SampleProgram"
 .PHONY : CMakeFiles/SampleProgram.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/SampleProgram.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SampleProgram.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SampleProgram.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles 0
 .PHONY : CMakeFiles/SampleProgram.dir/rule

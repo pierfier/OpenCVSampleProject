@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/SampleProgram.dir/main.cpp.o"
+  "CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o"
   "SampleProgram.pdb"
   "SampleProgram"
 )

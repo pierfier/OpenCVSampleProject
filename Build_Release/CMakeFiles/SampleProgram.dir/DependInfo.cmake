@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp" "/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o"
   "/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/main.cpp" "/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles/SampleProgram.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

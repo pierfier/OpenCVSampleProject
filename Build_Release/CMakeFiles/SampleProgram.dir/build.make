@@ -72,14 +72,39 @@ CMakeFiles/SampleProgram.dir/main.cpp.o.provides: CMakeFiles/SampleProgram.dir/m
 
 CMakeFiles/SampleProgram.dir/main.cpp.o.provides.build: CMakeFiles/SampleProgram.dir/main.cpp.o
 
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o: CMakeFiles/SampleProgram.dir/flags.make
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o: ../HSVFilter.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o -c /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp
+
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SampleProgram.dir/HSVFilter.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp > CMakeFiles/SampleProgram.dir/HSVFilter.cpp.i
+
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SampleProgram.dir/HSVFilter.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp -o CMakeFiles/SampleProgram.dir/HSVFilter.cpp.s
+
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.requires:
+.PHONY : CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.requires
+
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.provides: CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SampleProgram.dir/build.make CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.provides.build
+.PHONY : CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.provides
+
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.provides.build: CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o
+
 # Object files for target SampleProgram
 SampleProgram_OBJECTS = \
-"CMakeFiles/SampleProgram.dir/main.cpp.o"
+"CMakeFiles/SampleProgram.dir/main.cpp.o" \
+"CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o"
 
 # External object files for target SampleProgram
 SampleProgram_EXTERNAL_OBJECTS =
 
 SampleProgram: CMakeFiles/SampleProgram.dir/main.cpp.o
+SampleProgram: CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o
 SampleProgram: CMakeFiles/SampleProgram.dir/build.make
 SampleProgram: /usr/local/lib/libopencv_videostab.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_video.so.3.0.0
@@ -138,6 +163,7 @@ CMakeFiles/SampleProgram.dir/build: SampleProgram
 .PHONY : CMakeFiles/SampleProgram.dir/build
 
 CMakeFiles/SampleProgram.dir/requires: CMakeFiles/SampleProgram.dir/main.cpp.o.requires
+CMakeFiles/SampleProgram.dir/requires: CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o.requires
 .PHONY : CMakeFiles/SampleProgram.dir/requires
 
 CMakeFiles/SampleProgram.dir/clean:
