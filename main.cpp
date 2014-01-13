@@ -15,18 +15,20 @@ int main(int argc, char *argv[]){
 	
         //GaussianBlur(m, m, Size(3, 3), .2, .2);
         
-        HSVFilter hFilter(m);
+        //HSVFilter hFilter(m);
         
-        hFilter.x = 150;
-        hFilter.y = 130;        
-        hFilter.width = 100;
-        hFilter.height = 100;
+      //  hFilter.x = 150;
+    //    hFilter.y = 130;        
+  //      hFilter.width = 100;
+//        hFilter.height = 100;
 
-        hFilter.filter();
-        hFilter.graph();
+   //     hFilter.filter();
+ //       hFilter.graph();
         
         Mat binImage = m.clone();
         
+        inRange(m, Scalar(87, 20, 20), Scalar(200, 200, 200), binImage);
+
         //save this code for general purposes
         Mat kernel = (Mat_<double>(4, 4) <<         
                         1, 1, 1, 1,
@@ -39,8 +41,7 @@ int main(int argc, char *argv[]){
         //Mat kernel = Mat::ones(4,4,CV_8U);
         
         //seperates all of the colors out 
-        inRange(m, Scalar(20,50,0,0), Scalar(200 , 255, 100,255), binImage);
-        
+       
         //reduces the noise
         erode(binImage, binImage, kernel);
         dilate(binImage, binImage, kernel);

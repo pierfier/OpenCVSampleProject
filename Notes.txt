@@ -1,0 +1,1 @@
+Convert the color first to HSV before doing the range threshold
