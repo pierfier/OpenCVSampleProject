@@ -31,7 +31,15 @@
                   limit.lowerLimit = 0;
         }
 
-        void HSVFilter::filter(){
+        void HSVFilter::filterSaturation(){
+                
+        }
+
+        void HSVFilter::graphSaturation(){
+                
+        }
+
+        void HSVFilter::filterHue(){
                 
                 for(int i = x; i < width; i++){
                         for(int j = y; j < height; j++){
@@ -42,7 +50,7 @@
                 }
         }
 
-        void HSVFilter::graph(){
+        void HSVFilter::graphHue(){
                 for(int i = 0; i < length; i++){
                         wcout << i << " ";
                         wcout << distribution[i];

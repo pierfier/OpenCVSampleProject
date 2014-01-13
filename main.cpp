@@ -2,6 +2,7 @@
 #include "HSVFilter.hpp"
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv/cv.h>
 
 
 using namespace cv;
@@ -25,9 +26,13 @@ int main(int argc, char *argv[]){
    //     hFilter.filter();
  //       hFilter.graph();
         
+        Mat HSVImage = m.clone();
+
         Mat binImage = m.clone();
         
-        inRange(m, Scalar(87, 20, 20), Scalar(200, 200, 200), binImage);
+        cvtColor(m, HSVImage, CV_BGR2HSV);        
+
+        inRange(HSVImage, Scalar(0, 0, 0), Scalar(360, 100, 100), binImage);
 
         //save this code for general purposes
         Mat kernel = (Mat_<double>(4, 4) <<         
@@ -45,7 +50,7 @@ int main(int argc, char *argv[]){
         //reduces the noise
         erode(binImage, binImage, kernel);
         dilate(binImage, binImage, kernel);
-        
+
         imshow( "Original", m);
 	imshow("Ranged", binImage);
 	waitKey(0);

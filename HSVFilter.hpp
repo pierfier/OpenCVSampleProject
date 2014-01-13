@@ -11,8 +11,10 @@ class HSVFilter{
                 HSVFilter(Mat m);
                 ~HSVFilter();
 
-                void filter();
-                void graph();
+                void filterHue();
+                void graphHue();
+                void filterSaturation();
+                void graphSaturation();
 
                 struct HueLimit{
                         int upperLimit;
