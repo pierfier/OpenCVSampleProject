@@ -12,6 +12,8 @@
         HSVFilter::HSVFilter(Mat m){
                 length = sizeof distribution / (sizeof (int));
                 
+                distribution = new int[360];
+
                 for(int i = 0; i < length; i++){
                         distribution[i] = 0;
                 }
@@ -19,14 +21,13 @@
                 x = 0;
                 y = 0;
                 
-                width = mat.rows;
-                height = mat.cols;
-
-                wcout << width << " " << height;
-        
                 mat = m.clone();
 
+                width = mat.rows;
+                height = mat.cols;
+               
                 cvtColor(mat, mat, CV_BGR2HSV);
+
                   limit.upperLimit = 0;
                   limit.lowerLimit = 0;
         }
@@ -37,6 +38,11 @@
 
         void HSVFilter::graphSaturation(){
                 
+        }
+        
+        int HSVFilter::getPixelHue(){
+                Vec3b pixel = mat.at<Vec3b>(x, y);
+                return pixel[0];
         }
 
         void HSVFilter::filterHue(){

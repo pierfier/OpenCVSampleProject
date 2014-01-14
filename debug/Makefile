@@ -45,7 +45,7 @@ CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 CMAKE_SOURCE_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release
+CMAKE_BINARY_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/Build_Release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

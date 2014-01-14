@@ -34,6 +34,9 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
 
@@ -115,7 +118,6 @@ SampleProgram: /usr/local/lib/libopencv_softcascade.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_shape.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_photo.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_optim.so.3.0.0
-SampleProgram: /usr/local/lib/libopencv_ocl.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_objdetect.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_nonfree.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_ml.so.3.0.0
@@ -142,17 +144,16 @@ SampleProgram: /usr/local/lib/libopencv_cudawarping.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_legacy.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_cudaimgproc.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_cudafilters.so.3.0.0
-SampleProgram: /usr/local/lib/libopencv_nonfree.so.3.0.0
-SampleProgram: /usr/local/lib/libopencv_cudaarithm.so.3.0.0
-SampleProgram: /usr/local/lib/libopencv_ocl.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_video.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_objdetect.so.3.0.0
+SampleProgram: /usr/local/lib/libopencv_nonfree.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_ml.so.3.0.0
+SampleProgram: /usr/local/lib/libopencv_cudaarithm.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_calib3d.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_features2d.so.3.0.0
+SampleProgram: /usr/local/lib/libopencv_flann.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_highgui.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_imgproc.so.3.0.0
-SampleProgram: /usr/local/lib/libopencv_flann.so.3.0.0
 SampleProgram: /usr/local/lib/libopencv_core.so.3.0.0
 SampleProgram: CMakeFiles/SampleProgram.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable SampleProgram"

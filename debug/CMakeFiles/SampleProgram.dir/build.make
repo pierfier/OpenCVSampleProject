@@ -41,7 +41,7 @@ CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 CMAKE_SOURCE_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject
+CMAKE_BINARY_DIR = /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SampleProgram.dir/depend.make
@@ -53,8 +53,8 @@ include CMakeFiles/SampleProgram.dir/progress.make
 include CMakeFiles/SampleProgram.dir/flags.make
 
 CMakeFiles/SampleProgram.dir/main.cpp.o: CMakeFiles/SampleProgram.dir/flags.make
-CMakeFiles/SampleProgram.dir/main.cpp.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/SampleProgram.dir/main.cpp.o: ../main.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/SampleProgram.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/SampleProgram.dir/main.cpp.o -c /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/main.cpp
 
@@ -76,8 +76,8 @@ CMakeFiles/SampleProgram.dir/main.cpp.o.provides: CMakeFiles/SampleProgram.dir/m
 CMakeFiles/SampleProgram.dir/main.cpp.o.provides.build: CMakeFiles/SampleProgram.dir/main.cpp.o
 
 CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o: CMakeFiles/SampleProgram.dir/flags.make
-CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o: HSVFilter.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o: ../HSVFilter.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/SampleProgram.dir/HSVFilter.cpp.o -c /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp
 
@@ -172,6 +172,6 @@ CMakeFiles/SampleProgram.dir/clean:
 .PHONY : CMakeFiles/SampleProgram.dir/clean
 
 CMakeFiles/SampleProgram.dir/depend:
-	cd /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/CMakeFiles/SampleProgram.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/debug/CMakeFiles/SampleProgram.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SampleProgram.dir/depend
 

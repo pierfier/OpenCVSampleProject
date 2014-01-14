@@ -15,6 +15,7 @@ class HSVFilter{
                 void graphHue();
                 void filterSaturation();
                 void graphSaturation();
+                int getPixelHue();
 
                 struct HueLimit{
                         int upperLimit;
@@ -28,7 +29,7 @@ class HSVFilter{
                 //this will be the size of the Hue counter,
                 //each element in array will have the number
                 //of times the Hue would be seen
-                int distribution[360];
+                int* distribution;
 
                 //the bounds for checking a region
                 int x;
