@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "HSVFilter.hpp"
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -8,7 +9,16 @@ using namespace cv;
 using namespace std;
 
 int main(int argc, char *argv[]){
-        int minHue = 40, maxHue = 100;
+
+        //values to filter the Hue value
+        int minHue = 70, maxHue = 100;
+
+        for(int i = 0; i < argc ; i++){
+                if((string(argv[i])) == "-h"){
+                        minHue = atoi(string(argv[i + 1]).c_str());
+                        maxHue = atoi(string(argv[i + 2]).c_str());                        
+                }        
+        }
 
         namedWindow("Original", 1);
         namedWindow("Ranged", 1);
@@ -32,17 +42,22 @@ int main(int argc, char *argv[]){
 
         Mat binImage = m.clone();
         
+        //convert the color arrangement from RGB to HSV format
         cvtColor(HSVImage, HSVImage, CV_BGR2HSV);        
         
+        //filter the image Hue
         inRange(HSVImage, Scalar(minHue, 0, 0), Scalar(maxHue, 255, 255), binImage);
 
         //save this code for general purposes
-        Mat kernel = (Mat_<double>(4, 4) <<         
-                        1, 1, 1, 1,
-                        1, 1, 1, 1,
-                        1, 1, 1, 1
+        Mat kernel = (Mat_<double>(5, 5) <<         
+                        1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1,
+                        1, 1, 1, 1, 1
                         );
+              
         
+        //make sure that it is the right channel.
         kernel.convertTo(kernel, CV_8U);
         
  //       Mat kernel = Mat::ones(4,4,CV_8U);
