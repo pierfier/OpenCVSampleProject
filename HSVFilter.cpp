@@ -28,8 +28,8 @@
                
                 cvtColor(mat, mat, CV_BGR2HSV);
 
-                  limit.upperLimit = 0;
-                  limit.lowerLimit = 0;
+                  hueLimit.upperLimit = 0;
+                  hueLimit.lowerLimit = 0;
         }
 
         void HSVFilter::filterSaturation(){
@@ -47,6 +47,7 @@
 
         int HSVFilter::getPixelSaturation(int xS, int yS){
                 Vec3b pixel = mat.at<Vec3b>(yS, xS);
+                return pixel[1];
         }
 
         void HSVFilter::filterHue(){

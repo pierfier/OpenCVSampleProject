@@ -44,6 +44,11 @@ int main(int argc, char *argv[]){
         //convert the color arrangement from RGB to HSV format
         cvtColor(HSVImage, HSVImage, CV_BGR2HSV);        
         
+        //functions called to a certain pixels hue and saturation
+        wcout << "Hue value: " << hFilter.getPixelHue(160, 169) << endl;
+        wcout << "Saturation value: " << hFilter.getPixelSaturation(160, 169) << endl;
+
+
         //filter the image Hue
         inRange(HSVImage, Scalar(minHue, 0, 0), Scalar(maxHue, 255, 255), binImage);
 
@@ -58,11 +63,7 @@ int main(int argc, char *argv[]){
         
         //make sure that it is the right channel.
         kernel.convertTo(kernel, CV_8U);
-        
- //       Mat kernel = Mat::ones(4,4,CV_8U);
-        
-        //seperates all of the colors out 
-       
+            
         //reduces the noise
         erode(binImage, binImage, kernel);
         dilate(binImage, binImage, kernel);
