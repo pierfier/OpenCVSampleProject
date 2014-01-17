@@ -36,8 +36,7 @@ int main(int argc, char *argv[]){
 
    //     hFilter.filter();
  //       hFilter.graph();
-        wcout << "Hue Value: " << hFilter.getPixelHue() << endl;
-
+ 
         Mat HSVImage = m.clone();
 
         Mat binImage = m.clone();

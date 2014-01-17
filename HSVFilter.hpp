@@ -15,13 +15,14 @@ class HSVFilter{
                 void graphHue();
                 void filterSaturation();
                 void graphSaturation();
-                int getPixelHue();
+                int getPixelHue(int x, int y);
+                int getPixelSaturation(int x, int y);
 
                 struct HueLimit{
                         int upperLimit;
                         int lowerLimit;
                 };
-                HueLimit limit;
+                HueLimit hueLimit;
                 
                 //the Mat object that is being analyzed
                 Mat mat;

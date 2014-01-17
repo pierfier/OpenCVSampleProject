@@ -40,9 +40,13 @@
                 
         }
         
-        int HSVFilter::getPixelHue(){
-                Vec3b pixel = mat.at<Vec3b>(x, y);
+        int HSVFilter::getPixelHue(int xH, int yH){
+                Vec3b pixel = mat.at<Vec3b>(yH, xH);
                 return pixel[0];
+        }
+
+        int HSVFilter::getPixelSaturation(int xS, int yS){
+                Vec3b pixel = mat.at<Vec3b>(yS, xS);
         }
 
         void HSVFilter::filterHue(){
@@ -57,7 +61,7 @@
         }
 
         void HSVFilter::graphHue(){
-                for(int i = 0; i < length; i++){
+                for(int i = hueLimit.lowerLimit; i < hueLimit.upperLimit; i++){
                         wcout << i << " ";
                         wcout << distribution[i];
                         wcout << endl;
