@@ -15,6 +15,8 @@ class HSVFilter{
                 void graphHue();
                 void filterSaturation();
                 void graphSaturation();
+                void hueHistogram();
+
                 int getPixelHue(int x, int y);
                 int getPixelSaturation(int x, int y);
 

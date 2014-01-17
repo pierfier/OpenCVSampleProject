@@ -32,13 +32,21 @@
                   hueLimit.lowerLimit = 0;
         }
 
+        //needs to be implemented
         void HSVFilter::filterSaturation(){
                 
         }
-
+        
+        //needs to be implemented
         void HSVFilter::graphSaturation(){
                 
         }
+        
+        //implement this
+        void HSVFilter::hueHistogram(){
+                calcHist(&mat, 1, {0, 1}, Mat(), );
+        }
+
         
         int HSVFilter::getPixelHue(int xH, int yH){
                 Vec3b pixel = mat.at<Vec3b>(yH, xH);
