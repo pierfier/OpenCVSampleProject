@@ -1,1 +1,4 @@
-Convert the color first to HSV before doing the range threshold
+1 / 14 / 14 - Started looking at camera object distance
+
+1 / 16 / 14 - Worked on Hue and Saturation Histograms (Realized it would benefit)
+
