@@ -9,31 +9,50 @@ using namespace cv;
 using namespace std;
 
 int main(int argc, char *argv[]){
+        
+        //hue values for blue: 105 120
+        //hue values for red: 160 180
+        //hue values for green: 70 100
 
         //values to filter the Hue value
         int minHue = 70, maxHue = 100;
+       
+        //main Mat object
+	Mat m;
 
         for(int i = 0; i < argc ; i++){
+
+                //argument for the hue values when doing an inRange function
                 if((string(argv[i])) == "-h"){
                         minHue = atoi(string(argv[i + 1]).c_str());
-                        maxHue = atoi(string(argv[i + 2]).c_str());                        
-                }        
+                        maxHue = atoi(string(argv[i + 2]).c_str());                       
+                }
+
+                //argument for getting the image from feed or command line argument
+                 if((string(argv[i])) == "-c"){
+                         //code to get the picture from camera feed
+                         VideoCapture cap("rtsp://192.168.0.100/axis-media/media.amp");
+        
+                         if(!cap.isOpened()){
+                                wcout << "Unable to get camera";
+                                return -1;    
+                         }
+        
+                        m.release();
+                        cap.read(m);
+                }else
+                if((string(argv[i])) == "-f"){
+                        m = imread(argv[i + 1]);
+                }
+                       
         }
 
         namedWindow("Original", 1);
         namedWindow("Ranged", 1);
 
-	Mat m = imread(argv[1]);
-        
         wcout << "Number of channels in image: " <<m.channels() << endl;        
         
         //GaussianBlur(m, m, Size(3, 3), .2, .2);
-        
-        HSVFilter hFilter(m);
-        
-        hFilter.x = 168;
-        hFilter.y = 161;
-
    //     hFilter.filter();
  //       hFilter.graph();
  
@@ -43,14 +62,16 @@ int main(int argc, char *argv[]){
         
         //convert the color arrangement from RGB to HSV format
         cvtColor(HSVImage, HSVImage, CV_BGR2HSV);        
+         
+        //intializes the filter with the original Mat object that was grabbed
+        HSVFilter hFilter(m);
         
-        //functions called to a certain pixels hue and saturation
-        wcout << "Hue value: " << hFilter.getPixelHue(160, 169) << endl;
-        wcout << "Saturation value: " << hFilter.getPixelSaturation(160, 169) << endl;
-
+        //sets the hue limits
+        hFilter.lowerHueLimit = 70;
+        hFilter.upperHueLimit = 100;
 
         //filter the image Hue
-        inRange(HSVImage, Scalar(minHue, 0, 0), Scalar(maxHue, 255, 255), binImage);
+        inRange(HSVImage, Scalar(minHue, 0, 200), Scalar(maxHue, 255, 255), binImage);
 
         //save this code for general purposes
         Mat kernel = (Mat_<double>(5, 5) <<         

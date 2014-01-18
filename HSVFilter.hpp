@@ -16,15 +16,17 @@ class HSVFilter{
                 void filterSaturation();
                 void graphSaturation();
                 void hueHistogram();
+                void hueSaturationIntensityHisrogram();
 
+                //methods to get specific pixel attributes
                 int getPixelHue(int x, int y);
                 int getPixelSaturation(int x, int y);
+                
+                //the minimal Hue value that is in between the two peaks
+                int hueMinimal;
 
-                struct HueLimit{
-                        int upperLimit;
-                        int lowerLimit;
-                };
-                HueLimit hueLimit;
+                        double upperHueLimit;
+                        double lowerHueLimit;
                 
                 //the Mat object that is being analyzed
                 Mat mat;
