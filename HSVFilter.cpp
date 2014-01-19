@@ -47,44 +47,75 @@
                 // and the saturation to 32 levels
                 int hbins = 30, sbins = 32;
                 int histSize[] = {hbins, sbins};
-        // hue varies from 0 to 179, see cvtColor
-       float hranges[] = { 0, 180 };
-    // saturation varies from 0 (black-gray-white) to
-    // 255 (pure spectrum color)
-    float sranges[] = { 0, 256 };
-    const float* ranges[] = { hranges, sranges };
-    MatND hist;
-    // we compute the histogram from the 0-th and 1-st channels
-    int channels[] = {0, 1};
+                // hue varies from 0 to 179, see cvtColor
+                float hranges[] = { 0, 180 };
+                // saturation varies from 0 (black-gray-white) to
+                // 255 (pure spectrum color)
+                float sranges[] = { 0, 256 };
+                const float* ranges[] = { hranges, sranges };
+                MatND hist;
+                // we compute the histogram from the 0-th and 1-st channels
+                int channels[] = {0, 1};
 
-    calcHist( &mat, 1, channels, Mat(), // do not use mask
+                calcHist( &mat, 1, channels, Mat(), // do not use mask
                              hist, 2, histSize, ranges,
                                       true, // the histogram is uniform
                                                false );
-    double maxVal=0;
-    minMaxLoc(hist, 0, &maxVal, 0, 0);
+                double maxVal=0;
+                minMaxLoc(hist, 0, &maxVal, 0, 0);
 
-    int scale = 10;
-    Mat histImg = Mat::zeros(sbins*scale, hbins*10, CV_8UC3);
+                int scale = 10;
+                Mat histImg = Mat::zeros(sbins*scale, hbins*10, CV_8UC3);
 
-    for( int h = 0; h < hbins; h++ )
-        for( int s = 0; s < sbins; s++ ){
-                float binVal = hist.at<float>(h, s);
-                int intensity = cvRound(binVal);//*255/maxVal
-                rectangle( histImg, Point(h*scale, s*scale),
-                          Point( (h+1)*scale - 1, (s+1)*scale - 1),
-                          Scalar::all(intensity),
-                          CV_FILLED );
+                for( int h = 0; h < hbins; h++ )
+                        for( int s = 0; s < sbins; s++ ){
+                                float binVal = hist.at<float>(h, s);
+                                int intensity = cvRound(binVal);//*255/maxVal
+                                rectangle( histImg, Point(h*scale, s*scale),
+                                Point( (h+1)*scale - 1, (s+1)*scale - 1),
+                                Scalar::all(intensity),
+                                CV_FILLED );
+                }
+        
+                namedWindow("Histogram", 1);
+                imshow("Histogram", histImg);
+        
         }
         
-        namedWindow("Histogram", 1);
-        imshow("Histogram", histImg);
-        
-        }
-        
-        //implement this
+        //TODO provide a mask to have only the green hue values!!!!
+        //then do the same thing for the value histogram
         void HSVFilter::hueHistogram(){
+
+                //clones the objects Mat object to the methods disposal
+                Mat image = mat.clone();
+
+                int histSize = 100;
+                float vRange[] = {0, 180};
+                const float* range[] = {vRange};
+                int channel[] = {0};
+                Mat histResult;
+
+                //calculate the histogram and sets it equal to histResult
+                calcHist( &image, 1, channel, Mat(), histResult, 1, &histSize, range, true, false );
                 
+                //normalizes the histogram
+               
+                int bin_w = cvRound( (double) 500 / histSize);
+                
+                //the object that actually has the plotted data
+                Mat histogram(400, 500, CV_8UC3, Scalar( 0,0,0));
+               
+                normalize(image, image, 0, histogram.rows, NORM_MINMAX, -1, Mat() );
+ 
+                //draws the histogram plot to the histogram image
+                for(int i = 1; i < histSize; i++){
+                        line(histogram, Point( bin_w * (i - 1), 400 -  cvRound(histResult.at<float>(i - 1)) ), Point( bin_w * (i), 400 - cvRound(histResult.at<float>(i)) ),
+                                        Scalar(100, 200, 0), 2, 8, 0 
+                                        );
+                }
+
+                namedWindow("Histogram", 1);
+                imshow("Histogram", histogram);
         }
 
         

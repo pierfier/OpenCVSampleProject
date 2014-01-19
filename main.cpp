@@ -4,9 +4,29 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv/cv.h>
+#include <thread>
+#include <unistd.h>
 
 using namespace cv;
 using namespace std;
+
+bool runtimeFeed = false;
+
+int displayFeedContinuously(){
+        Mat feed;
+        VideoCapture cap(0);
+        if(!cap.isOpened()){
+                
+        }else{
+        while(true){                    
+                sleep(1);                
+                cap.open(0);
+                
+                cap.read(feed);
+                imshow("Feed", feed);
+        }   
+        }
+}
 
 int main(int argc, char *argv[]){
         
@@ -40,22 +60,25 @@ int main(int argc, char *argv[]){
         
                         m.release();
                         cap.read(m);
-                }else
-                if((string(argv[i])) == "-f"){
+                }
+                 
+                 //argument to get the picture from a file
+                 else if((string(argv[i])) == "-f"){
                         m = imread(argv[i + 1]);
                 }
                        
         }
-
-        namedWindow("Original", 1);
-        namedWindow("Ranged", 1);
-
-        wcout << "Number of channels in image: " <<m.channels() << endl;        
+        if(runtimeFeed){
+                thread runtimeFeedThread(displayFeedContinuously);
         
-        //GaussianBlur(m, m, Size(3, 3), .2, .2);
-   //     hFilter.filter();
- //       hFilter.graph();
- 
+                runtimeFeedThread.join();
+        }
+        
+        //HSV Filtering and histogram generation
+        HSVFilter hFilter(m);
+        
+        hFilter.hueHistogram();
+
         Mat HSVImage = m.clone();
 
         Mat binImage = m.clone();
@@ -63,16 +86,9 @@ int main(int argc, char *argv[]){
         //convert the color arrangement from RGB to HSV format
         cvtColor(HSVImage, HSVImage, CV_BGR2HSV);        
          
-        //intializes the filter with the original Mat object that was grabbed
-        HSVFilter hFilter(m);
+        //filter the image Hue              normally: 200
+        inRange(HSVImage, Scalar(minHue, 0, 0), Scalar(maxHue, 255, 255), binImage);
         
-        //sets the hue limits
-        hFilter.lowerHueLimit = 70;
-        hFilter.upperHueLimit = 100;
-
-        //filter the image Hue
-        inRange(HSVImage, Scalar(minHue, 0, 200), Scalar(maxHue, 255, 255), binImage);
-
         //save this code for general purposes
         Mat kernel = (Mat_<double>(5, 5) <<         
                         1, 1, 1, 1, 1,
@@ -88,6 +104,9 @@ int main(int argc, char *argv[]){
         //reduces the noise
         erode(binImage, binImage, kernel);
         dilate(binImage, binImage, kernel);
+
+        namedWindow("Original", 1);
+        namedWindow("Ranged", 1);
 
         imshow( "Original", m);
 	imshow("Ranged", binImage);

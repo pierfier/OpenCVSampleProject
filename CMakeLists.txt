@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project( SampleProgram )
 find_package( OpenCV REQUIRED )
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++0x")
 set(SOURCES main.cpp HSVFilter.cpp)
 add_executable( SampleProgram ${SOURCES})
 target_link_libraries( SampleProgram ${OpenCV_LIBS} )

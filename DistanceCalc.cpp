@@ -36,10 +36,13 @@ DistanceCalc::DistanceCalc(){
         }
 
         //pass in a single argument to determine the units to be in the output
+        //height: height of the image
+        //objectHeight: height of the object for real
+
         double DistanceCalc::find_object_distance(Units unit){
                 if(unit == Units.M){
                         return focalLength * objectHeight * height / (objectPixelHeight * sensorHeight * 1000.);
-                 }else if(unit ++ Units.MM){
+                 }else if(unit == Units.MM){
                         return focalLength * objectHeight * height * 1000. / (objectPixelHeight * sensorHeight);
                  }
                 }
