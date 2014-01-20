@@ -88,6 +88,11 @@
 
                 //clones the objects Mat object to the methods disposal
                 Mat image = mat.clone();
+                
+                //Mat object that is going to be used for the masking
+                Mat mask = mat.clone();
+
+                //inRange(mask, mask, Scalar(), Scalar(), Scalar());
 
                 int histSize = 100;
                 float vRange[] = {0, 180};

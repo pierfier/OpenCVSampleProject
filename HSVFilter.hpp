@@ -17,6 +17,7 @@ class HSVFilter{
                 void graphSaturation();
                 void hueHistogram();
                 void hueSaturationIntensityHisrogram();
+                
 
                 //methods to get specific pixel attributes
                 int getPixelHue(int x, int y);

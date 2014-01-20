@@ -74,6 +74,10 @@ int main(int argc, char *argv[]){
                 runtimeFeedThread.join();
         }
         
+        //check what properties it needs in order to be a mask
+        //I think it has to be a binary image
+        Mat greenFiltered;
+
         //HSV Filtering and histogram generation
         HSVFilter hFilter(m);
         
