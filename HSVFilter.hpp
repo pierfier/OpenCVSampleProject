@@ -16,6 +16,7 @@ class HSVFilter{
                 void filterSaturation();
                 void graphSaturation();
                 void hueHistogram();
+                void valueHistogram();        
                 void hueSaturationIntensityHisrogram();
                 
 

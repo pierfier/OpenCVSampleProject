@@ -5,3 +5,5 @@
 1 / 18 / 14 - Looked at the HSVFilter. Prioritized to work on the distance between robot and target
 
 1 / 19 / 14 - Created the Hue histogram
+
+1 / 20 / 14 - Created a mask object for the calculation of the histogram

@@ -82,17 +82,35 @@
         
         }
         
+        void HSVFilter::valueHistogram(){
+                
+        }
+
         //TODO provide a mask to have only the green hue values!!!!
         //then do the same thing for the value histogram
+        //it would be preferred to do a Gaussian Blur, so there are a minimal amount of variation in the Hue values
+        
         void HSVFilter::hueHistogram(){
 
                 //clones the objects Mat object to the methods disposal
                 Mat image = mat.clone();
+ 
+                //blur the image, this allows for distinct differences in Hue color values
+                GaussianBlur(image, image, Size(3, 3), 1.0);
                 
+                cvtColor(image, image, CV_HSV2BGR);
+                
+                imshow("Blur", image);
+                
+                cvtColor(image, image, CV_BGR2HSV);
+               
                 //Mat object that is going to be used for the masking
-                Mat mask = mat.clone();
+                
+                Mat mask = image.clone();
 
-                //inRange(mask, mask, Scalar(), Scalar(), Scalar());
+                inRange(mask, Scalar(70, 0, 0), Scalar(100, 255, 255), mask);
+                
+                imshow("Masking", mask);
 
                 int histSize = 100;
                 float vRange[] = {0, 180};
@@ -101,7 +119,7 @@
                 Mat histResult;
 
                 //calculate the histogram and sets it equal to histResult
-                calcHist( &image, 1, channel, Mat(), histResult, 1, &histSize, range, true, false );
+                calcHist( &image, 1, channel, mask, histResult, 1, &histSize, range, true, false );
                 
                 //normalizes the histogram
                
