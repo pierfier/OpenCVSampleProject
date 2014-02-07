@@ -11,6 +11,7 @@ using namespace cv;
 using namespace std;
 
 bool runtimeFeed = false;
+bool camerafeed = false;
 
 int displayFeedContinuously(){
         Mat feed;
@@ -52,7 +53,7 @@ int main(int argc, char *argv[]){
                  if((string(argv[i])) == "-c"){
                          //code to get the picture from camera feed
                          VideoCapture cap("rtsp://192.168.0.100/axis-media/media.amp");
-        
+                        camerafeed = true;
                          if(!cap.isOpened()){
                                 wcout << "Unable to get camera";
                                 return -1;    
@@ -91,7 +92,7 @@ int main(int argc, char *argv[]){
         cvtColor(HSVImage, HSVImage, CV_BGR2HSV);        
          
         //filter the image Hue              normally: 200
-        inRange(HSVImage, Scalar(minHue, 0, 0), Scalar(maxHue, 255, 255), binImage);
+        inRange(HSVImage, Scalar(minHue, 0, 50), Scalar(maxHue, 255, 255), binImage);
         
         //save this code for general purposes
         Mat kernel = (Mat_<double>(5, 5) <<         
@@ -113,6 +114,9 @@ int main(int argc, char *argv[]){
         namedWindow("Ranged", 1);
 
         imshow( "Original", m);
+        if(camerafeed){
+                imwrite("FRC_CAMERA_IMAGE.png", m);
+        }
 	imshow("Ranged", binImage);
 	waitKey(0);
         

@@ -1,1 +1,3 @@
-efgbrsergabrsga
+#include <>
+
+GoalDetector::

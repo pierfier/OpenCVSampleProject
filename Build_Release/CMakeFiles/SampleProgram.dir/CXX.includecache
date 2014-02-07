@@ -6,25 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.cpp
+/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.hpp
+opencv2/opencv.hpp
+-
+opencv2/core/core.hpp
+-
+
+/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/main.cpp
 iostream
+-
+string
 -
 HSVFilter.hpp
 /home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.hpp
 opencv2/opencv.hpp
 -
+opencv2/highgui/highgui.hpp
+-
 opencv/cv.h
 -
-opencv2/core/core.hpp
+thread
 -
-opencv2/highgui/highgui.hpp
-/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/opencv2/highgui/highgui.hpp
-opencv2/imgproc/imgproc.hpp
-/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/opencv2/imgproc/imgproc.hpp
-
-/home/pierre/Robotics/OpenCV_Projects/OpenCVSampleProject/HSVFilter.hpp
-opencv2/opencv.hpp
--
-opencv2/core/core.hpp
+unistd.h
 -
 
